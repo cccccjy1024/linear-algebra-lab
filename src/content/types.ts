@@ -43,6 +43,9 @@ export interface Section {
   description: string
   memoryHook?: string
   rigorousNote?: string
+  metaphor?: { title: string; body: string }
+  aiExample?: { title: string; body: string; formula?: string }
+  experiment?: { start: string; adjust: string; observe: string }
   objectives?: string[]
   prerequisites?: string
   concepts?: ConceptItem[]
