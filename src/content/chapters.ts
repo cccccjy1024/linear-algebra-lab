@@ -1,6 +1,7 @@
 import type { Application, Chapter, Section } from './types'
 import { knowledgeChapters } from './chaptersCore'
 import { extraChapters } from './chaptersExtra'
+import { metaphors, aiExamples, experiments } from './hooks'
 
 const knowledgeDescriptions: Record<string, string> = {
   '1-1': '从线性组合出发，理解向量方程与平面张成。',
@@ -105,7 +106,10 @@ function enhanceSection(s: any): Section {
     description: knowledgeDescriptions[s.id] ?? s.title,
     memoryHook: memoryHooks[s.id] ?? `一句话记忆：${s.title}——先抓住“它解决什么问题”，再记公式。`,
     rigorousNote: rigorousNotes[s.id] ?? `对应教材 ${s.number} 节：掌握定义、性质与典型例题；关键结论已在上方给出，严格推导可见原书。`,
-    applications: applicationsBySection[s.id] ?? []
+    applications: applicationsBySection[s.id] ?? [],
+    metaphor: metaphors[s.id],
+    aiExample: aiExamples[s.id],
+    experiment: experiments[s.id]
   }
 }
 
