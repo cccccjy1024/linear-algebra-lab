@@ -143,6 +143,32 @@ export default function Lesson() {
                 </div>
               )}
 
+              {(section.metaphor || section.aiExample || section.experiment) && (
+                <div className="block">
+                  <div className="block-title">由浅入深</div>
+                  <div className="memory-grid">
+                    {section.metaphor && (
+                      <div className="memory-card">
+                        <span className="memory-label">生活比喻 · {section.metaphor.title}</span>
+                        <p>{section.metaphor.body}</p>
+                      </div>
+                    )}
+                    {section.aiExample && (
+                      <div className="memory-card rigor">
+                        <span className="memory-label">AI 例子 · {section.aiExample.title}</span>
+                        <p>{section.aiExample.body}</p>
+                        {section.aiExample.formula && <MathTex tex={section.aiExample.formula} display />}
+                      </div>
+                    )}
+                  </div>
+                  {section.experiment && (
+                    <div className="status-line" style={{ marginTop: 12 }}>
+                      <strong>实验式学习：</strong>先从“{section.experiment.start}”开始，再“{section.experiment.adjust}”，最后“{section.experiment.observe}”。
+                    </div>
+                  )}
+                </div>
+              )}
+
               {section.objectives && (
                 <div className="block">
                   <div className="block-title">学习目标</div>
